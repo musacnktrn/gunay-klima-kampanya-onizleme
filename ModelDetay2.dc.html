@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>@keyframes gk-sweep{from{transform:rotate(-34deg)}to{transform:rotate(34deg)}}@keyframes gk-walk{0%{left:28%;top:62%}30%{left:70%;top:52%}62%{left:60%;top:80%}100%{left:28%;top:62%}}@keyframes gk-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes gk-thermal{0%{clip-path:inset(0 0 100% 0)}38%,78%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 0);opacity:0}}@keyframes gk-scanline{0%{top:0;opacity:1}38%{top:100%;opacity:1}40%,100%{top:100%;opacity:0}}@keyframes gk-ring{0%,30%{opacity:0;transform:translate(-50%,-50%) scale(.6)}40%{opacity:1;transform:translate(-50%,-50%) scale(1)}75%{opacity:1;transform:translate(-50%,-50%) scale(1)}90%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.3)}}@keyframes gk-drift{from{transform:scale(1.04) translateY(0)}to{transform:scale(1.1) translateY(-3%)}}@keyframes gk-shield{0%{transform:translateX(-120%)}60%,100%{transform:translateX(120%)}}@keyframes gk-flow{to{stroke-dashoffset:-22}}@keyframes gk-ping2{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.4);opacity:0}}@keyframes gk-blink{50%{opacity:0}}@keyframes gk-pulse{0%{box-shadow:0 0 0 0 rgba(244,242,240,.35)}100%{box-shadow:0 0 0 16px rgba(244,242,240,0)}}.gk-ns::-webkit-scrollbar{display:none}@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}</style></helmet>
+<div style="{{ vars }}" lang="tr">
+<div style="position:absolute;inset:0;overflow:hidden;container-type:inline-size;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased">
+<div ref="{{ scroller }}" style="position:relative;height:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:none;padding-top:calc(var(--sat) + 56px);box-sizing:border-box">
+
+<sc-if value="{{ isLN }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;padding-top:16px">
+    <div data-rv="" style="position:absolute;left:-30%;right:-30%;top:-120px;height:460px;background:radial-gradient(ellipse 42% 62% at 50% 0%,rgba(255,255,255,.24),rgba(255,255,255,0) 72%);opacity:0;transition:opacity 1.8s ease .1s;pointer-events:none"></div>
+    <div style="position:relative;padding:28px 14px 0">
+      <img data-rv="" src="assets/urun2/msz-ln.webp" alt="Legendera MSZ-LN iç ünite, Yakut Kırmızısı" style="display:block;width:100%;height:auto;opacity:0;filter:brightness(.12);transform:translateY(-12px) scale(.98);transition:opacity 1.1s ease .35s,filter 1.9s ease .55s,transform 1.6s cubic-bezier(.2,.7,.2,1) .35s">
+      <span style="display:block;margin:4px auto 0;width:72%;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.14),rgba(255,255,255,0))"></span>
+    </div>
+    <div style="padding:32px 24px 0">
+      <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)">LEGENDERA · MSZ-LN</p>
+      <h1 data-rv="" style="margin:16px 0 0;font-size:clamp(40px,13.5cqi,56px);line-height:.96;letter-spacing:-.02em;opacity:0;transform:translateY(16px);transition:opacity 1s cubic-bezier(.2,.7,.2,1) .7s,transform 1s cubic-bezier(.2,.7,.2,1) .7s"><span style="display:block;font-weight:300">KLİMADA</span><span style="display:block;font-weight:800">BİR KONFOR</span><span style="display:block;font-weight:300">RESİTALİ</span></h1>
+      <span style="display:block;margin-top:22px;width:56px;height:3px;background:#B1001A"></span>
+      <p style="margin:20px 0 0;font-size:18px;line-height:1.55;color:var(--muted);text-wrap:pretty">Göz alıcı estetiği ve yıl boyu yüksek performansıyla güç ve konforu bir arada sunan klima deneyimi Legendera'da.</p>
+    </div>
+  </section>
+  <section style="padding:40px 24px 0">
+    <div data-rv="" style="border-radius:24px;overflow:hidden;opacity:0;transform:scale(.96);transition:opacity 1s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)"><img src="assets/detay/ln-piyano.jpg" alt="Kırmızı kuyruklu piyano çalan piyanist ve klimadan yayılan hava akışı" loading="lazy" style="display:block;width:100%;height:auto"></div>
+  </section>
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">YAPAY ZEKA · 3D i-SEE SENSÖR</p>
+    <h2 style="margin:14px 0 0;font-size:clamp(26px,8cqi,32px);line-height:1.1;font-weight:800;letter-spacing:-.025em">Sizi görebilen bir klima.</h2>
+    <div data-rv="" style="margin:24px -24px 0;opacity:0;transition:opacity 1s ease">
+      <div aria-label="Kızılötesi sensör, kişinin baş bölgesini 30, ayak bölgesini 22 derece olarak okuyor" role="img" style="position:relative;aspect-ratio:1000/710;background:#000;overflow:hidden">
+        <img src="assets/detay/ln-isee.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.42) contrast(1.15)">
+        <img src="assets/detay/ln-isee.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:gk-thermal 6s cubic-bezier(.45,0,.2,1) infinite">
+        <span style="position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#FFFFFF 30%,#FFFFFF 70%,rgba(255,255,255,0));box-shadow:0 0 18px 4px rgba(255,180,90,.55);animation:gk-scanline 6s cubic-bezier(.45,0,.2,1) infinite"></span>
+        <span style="position:absolute;left:26.5%;top:15.2%;width:13%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid #FFFFFF;opacity:0;animation:gk-ring 6s ease-out 2.2s infinite"></span><span style="position:absolute;left:27%;top:85.9%;width:13%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid #FFFFFF;opacity:0;animation:gk-ring 6s ease-out 3.6s infinite"></span>
+        <span style="position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#F4F2F0"><span style="width:7px;height:7px;border-radius:50%;background:#B1001A;animation:gk-blink 1.2s steps(2,end) infinite"></span>KIZILÖTESİ TARAMA</span>
+      </div>
+    </div>
+    <p style="margin:16px 0 0;font-size:17px;line-height:1.55;color:var(--muted);text-wrap:pretty">Sensör vücudunuzu bölge bölge okur: başınız ile ayaklarınız arasındaki sıcaklık farkını bile görür.</p>
+    <p style="margin:28px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">ODADA SİZİ TAKİP EDER</p>
+    <div data-rv="" style="margin-top:24px;opacity:0;transition:opacity 1s ease">
+      <div aria-hidden="true" style="position:relative;aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#100E11;box-shadow:inset 0 0 0 1px var(--line)">
+        <div style="position:absolute;left:3.33%;top:3.33%;right:3.33%;bottom:3.33%;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(10,1fr)">
+          <sc-for list="{{ heat }}" as="h" hint-placeholder-count="10"><span style="box-shadow:inset 0 0 0 .5px rgba(255,255,255,.05);background:rgba(244,242,240,{{ h.o }});transition:background 1.2s ease"></span></sc-for>
+        </div>
+        <svg viewBox="0 0 300 300" style="position:absolute;inset:0;width:100%;height:100%">
+          <defs><linearGradient id="gk-cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".26"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient></defs>
+          <rect x="24" y="160" width="150" height="122" rx="6" fill="none" stroke="#F4F2F0" stroke-opacity=".16" stroke-dasharray="3 5"></rect>
+          <g fill="none" stroke="#F4F2F0" stroke-opacity=".5" stroke-width="1.5">
+            <rect x="28" y="226" width="128" height="44" rx="8"></rect><line x1="28" y1="258" x2="156" y2="258"></line><line x1="71" y1="226" x2="71" y2="258"></line><line x1="113" y1="226" x2="113" y2="258"></line>
+            <rect x="62" y="176" width="62" height="30" rx="4"></rect>
+            <rect x="204" y="206" width="56" height="54" rx="12"></rect><rect x="212" y="214" width="40" height="34" rx="8" stroke-opacity=".25"></rect>
+            <rect x="26" y="40" width="82" height="36" rx="3"></rect><circle cx="66" cy="94" r="12"></circle>
+            <circle cx="264" cy="264" r="12"></circle><circle cx="264" cy="264" r="5" stroke-opacity=".3"></circle>
+            <rect x="15" y="112" width="9" height="72" rx="2"></rect>
+          </g>
+          <rect x="10" y="10" width="280" height="280" fill="none" stroke="#F4F2F0" stroke-opacity=".85" stroke-width="5"></rect>
+          <rect x="42" y="286" width="52" height="9" fill="#100E11"></rect>
+          <line x1="42" y1="290" x2="42" y2="240" stroke="#F4F2F0" stroke-opacity=".7" stroke-width="2"></line>
+          <path d="M42 240 A50 50 0 0 1 92 290" fill="none" stroke="#F4F2F0" stroke-opacity=".35" stroke-dasharray="3 4"></path>
+          <rect x="286" y="108" width="8" height="84" fill="#100E11" stroke="#F4F2F0" stroke-opacity=".7"></rect><line x1="290" y1="108" x2="290" y2="192" stroke="#F4F2F0" stroke-opacity=".4"></line>
+          <g style="transform-origin:150px 24px;transform:rotate({{ cone }}deg);transition:transform 1.4s cubic-bezier(.45,0,.2,1)"><path d="M150 24 L104 300 L196 300 Z" fill="url(#gk-cone)"></path></g>
+          <g fill="none" stroke="#9CC8FF" stroke-opacity=".75" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 9" style="animation:gk-flow .9s linear infinite">
+            <path d="{{ air.p1 }}" style="d:path('{{ air.p1 }}');transition:d 1.6s cubic-bezier(.45,0,.2,1)"></path>
+            <path d="{{ air.p2 }}" style="d:path('{{ air.p2 }}');transition:d 1.6s cubic-bezier(.45,0,.2,1)"></path>
+            <path d="{{ air.p3 }}" style="d:path('{{ air.p3 }}');transition:d 1.6s cubic-bezier(.45,0,.2,1)"></path>
+          </g>
+          <rect x="110" y="13" width="80" height="11" rx="3" fill="#B1001A"></rect>
+          <g style="transform:translate({{ ps.x }}px,{{ ps.y }}px);transition:transform 2.6s cubic-bezier(.45,0,.2,1)">
+            <circle r="12" fill="none" stroke="#F4F2F0" stroke-width="1.5" style="transform-box:fill-box;transform-origin:center;animation:gk-ping2 2s ease-out infinite"></circle>
+            <path d="M-20 -14 h6 M-20 -14 v6 M20 -14 h-6 M20 -14 v6 M-20 14 h6 M-20 14 v-6 M20 14 h-6 M20 14 v-6" stroke="#B1001A" stroke-width="2" fill="none"></path>
+            <ellipse cx="0" cy="2" rx="13" ry="7" fill="#F4F2F0"></ellipse>
+            <circle cx="0" cy="-1" r="6" fill="#F4F2F0" stroke="#100E11" stroke-width="2"></circle>
+            <text x="0" y="-22" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.08em;fill:#F4F2F0">SİZ</text>
+          </g>
+        </svg>
+        <div style="position:absolute;left:14px;top:12px;display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#F4F2F0"><span style="width:7px;height:7px;border-radius:50%;background:#B1001A;animation:gk-blink 1.2s steps(2,end) infinite"></span>3D i-SEE · TARAMA</div>
+      </div>
+      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+        <div style="padding:12px 14px;border-radius:16px;background:var(--panel)"><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--muted)">KONUM</span><span style="display:block;margin-top:4px;font-size:16px;font-weight:700">{{ ps.place }}</span></div>
+        <div style="padding:12px 14px;border-radius:16px;background:var(--panel)"><span style="display:block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--muted)">HAVA AKIŞI</span><span style="display:block;margin-top:4px;font-size:16px;font-weight:700">{{ air.lbl }}</span></div>
+      </div>
+      <div role="radiogroup" aria-label="Hava akışı yönü" style="margin-top:10px;position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px;border-radius:999px;background:rgba(255,255,255,.08)">
+        <span aria-hidden="true" style="position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#F4F2F0;transform:{{ air.thumb }};transition:transform .45s cubic-bezier(.2,.8,.2,1)"></span>
+        <button role="radio" aria-checked="{{ air.awayStr }}" onClick="{{ setAway }}" style="all:unset;cursor:pointer;position:relative;height:48px;display:grid;place-items:center;font-size:15px;font-weight:700;color:{{ air.c1 }};transition:color .3s">Sizden uzağa</button>
+        <button role="radio" aria-checked="{{ air.toStr }}" onClick="{{ setTo }}" style="all:unset;cursor:pointer;position:relative;height:48px;display:grid;place-items:center;font-size:15px;font-weight:700;color:{{ air.c2 }};transition:color .3s">Size doğru</button>
+      </div>
+    </div>
+    <p style="margin:20px 0 0;font-size:17px;line-height:1.55;color:var(--muted);text-wrap:pretty">Kızılötesi ışın sensörüyle vücut sıcaklığınızı takip eder. Yapay zekası ile hava akımının doğrudan üzerinize gelmesine engel olur ya da tercihinize göre size doğru yöneltir.</p>
+    <p style="margin:12px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.55;color:var(--muted)">3D i-See Sensör teknolojisi, sadece Legendera serisi ürünlerinde bulunmaktadır.</p>
+  </section>
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">RENK SEÇENEKLERİ</p>
+    <div style="margin-top:18px;position:relative;aspect-ratio:8/5;border-radius:22px;overflow:hidden;background:#000">
+      <sc-for list="{{ lnImgs }}" as="im" hint-placeholder-count="1">
+        <img src="{{ im.src }}" alt="{{ im.alt }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ im.o }};transform:{{ im.t }};transition:opacity .7s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)">
+      </sc-for>
+      <span style="position:absolute;left:12px;bottom:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#FFFFFF;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:999px">örnek görsel</span>
+    </div>
+    <div style="margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+      <sc-for list="{{ lnSw }}" as="s" hint-placeholder-count="4">
+        <button onClick="{{ s.pick }}" aria-pressed="{{ s.pressed }}" style="all:unset;cursor:pointer;box-sizing:border-box;min-height:52px;border-radius:16px;border:1.5px solid {{ s.bd }};padding:0 12px;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;transition:border-color .25s">
+          <span style="flex:none;width:22px;height:22px;border-radius:50%;background:{{ s.c }};box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)"></span>{{ s.n }}
+        </button>
+      </sc-for>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isEF }}" hint-placeholder-val="{{ false }}">
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)">KİRİGAMİNE ZEN · MSZ-EF</p>
+    <h1 data-rv="" style="margin:18px 0 0;font-size:clamp(40px,13cqi,54px);line-height:.98;font-weight:800;letter-spacing:-.035em;opacity:0;transform:translateY(16px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">Ödüllü<br>tasarım</h1>
+    <p data-rv="" style="margin:18px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;opacity:0;transition:opacity 1s ease .3s">2014 GOOD DESIGN · 2015 RED DOT</p>
+  </section>
+  <section style="position:relative;margin-top:56px">
+    <span data-rv="" style="display:block;height:1px;background:var(--line2);transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.6,0,.2,1)"></span>
+    <div style="padding:26px 14px 0;animation:gk-float 7s ease-in-out infinite">
+      <img data-rv="" data-clip="" src="assets/urun2/msz-ef.webp" alt="Kirigamine Zen MSZ-EF iç ünite, siyah" style="display:block;width:100%;height:auto;clip-path:inset(0 100% 0 0);transition:clip-path 1.6s cubic-bezier(.6,0,.2,1) .35s">
+    </div>
+    <span style="display:block;margin:6px auto 0;width:70%;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(23,22,26,.18),rgba(23,22,26,0))"></span>
+  </section>
+  <section style="padding:40px 24px 0">
+    <p data-rv="" style="margin:0;font-size:19px;line-height:1.55;font-weight:500;text-wrap:pretty;opacity:0;transform:translateY(12px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)">Modern iç mekan dekorunuzu yenilemek için geliştirilen Kirigamine Zen, 3 renk alternatifi sayesinde bulunduğu ortam ile doğal bir uyum sağlar.</p>
+    <div style="margin-top:24px;display:flex;gap:18px;flex-wrap:wrap">
+      <span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:20px;height:20px;border-radius:50%;background:#141416"></span>Siyah</span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:20px;height:20px;border-radius:50%;background:#C9CBCD"></span>Gümüş</span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700"><span style="width:20px;height:20px;border-radius:50%;background:#FFFFFF;box-shadow:inset 0 0 0 1px #CFC9BF"></span>Beyaz</span>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isAY }}" hint-placeholder-val="{{ false }}">
+  <section style="position:relative;margin-top:calc(-1 * (var(--sat) + 56px))">
+    <div style="position:relative;aspect-ratio:1/1;max-height:460px;overflow:hidden">
+      <img data-rv="" src="assets/detay/ay-2.jpg" alt="Duvarda Noviro ME klima ve aşağı doğru yayılan yumuşak hava akışı" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 2.6s cubic-bezier(.2,.7,.2,1)">
+      <span style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,23,20,.6) 0%,rgba(26,23,20,0) 28%,rgba(26,23,20,0) 55%,#1A1714 100%)"></span>
+    </div>
+    <div style="position:relative;margin-top:-28px;padding:0 24px">
+      <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)">NOVİRO ME · MSZ-AY</p>
+      <h1 style="margin:14px 0 0;font-size:clamp(30px,9.4cqi,40px);line-height:1;font-weight:800;letter-spacing:-.02em">
+        <span style="display:block">FARKI</span>
+        <span style="display:block;position:relative;height:3.1em;margin-top:.12em">
+          <sc-for list="{{ ayWords }}" as="w" hint-placeholder-count="1">
+            <span style="position:absolute;left:0;right:0;top:0;opacity:{{ w.o }};transform:{{ w.t }};transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1);text-wrap:balance">{{ w.v }} <span style="font-weight:300">İLE</span></span>
+          </sc-for>
+        </span>
+        <span style="display:block">HER NEFESTE</span>
+      </h1>
+      <span style="display:block;margin-top:22px;width:56px;height:3px;background:#B1001A"></span>
+      <p style="margin:20px 0 0;font-size:18px;line-height:1.55;color:var(--muted);text-wrap:pretty">Noviro<sup style="font-size:.6em">ME</sup>, sezonsal soğutma verimliliğinde A+++, sezonsal ısıtma verimliliğinde ise A++ enerji sınıfında yer alır.</p>
+    </div>
+  </section>
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">SEZONSAL SOĞUTMA VERİMLİLİĞİ · SEER</p>
+    <div data-rv="" style="margin-top:34px;position:relative;height:170px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end;border-bottom:1px solid var(--line2);opacity:0;transition:opacity .6s">
+      <span style="position:absolute;left:0;right:0;bottom:145px;border-top:1px dashed rgba(244,239,232,.45)"><span style="position:absolute;right:0;top:-20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">A+++ sınırı 8,5</span></span>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">8,7</span><span data-seg="" style="width:100%;height:148px;border-radius:10px 10px 0 0;background:#B1001A;transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.7,.2,1) .1s"></span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">8,7</span><span data-seg="" style="width:100%;height:148px;border-radius:10px 10px 0 0;background:#B1001A;transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.7,.2,1) .2s"></span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">7,9</span><span data-seg="" style="width:100%;height:134px;border-radius:10px 10px 0 0;background:rgba(244,239,232,.3);transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.7,.2,1) .3s"></span></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">7,5</span><span data-seg="" style="width:100%;height:128px;border-radius:10px 10px 0 0;background:rgba(244,239,232,.3);transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.7,.2,1) .4s"></span></div>
+    </div>
+    <div style="margin-top:8px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)"><span>AY25</span><span>AY35</span><span>AY42</span><span>AY50</span></div>
+    <p style="margin:18px 0 0;font-size:14px;line-height:1.55;color:var(--muted)">MSZ-AY25 ve MSZ-AY35 modelleri SEER A+++, MSZ-AY42 ve MSZ-AY50 modelleri SEER A++ sınıfında yer alır.</p>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isAP }}" hint-placeholder-val="{{ false }}">
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)">ENVIRO ME · MSZ-AP</p>
+    <h1 data-rv="" style="margin:18px 0 0;font-size:clamp(36px,11.5cqi,48px);line-height:1;font-weight:800;letter-spacing:-.035em;text-wrap:balance;opacity:0;transform:translateY(16px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">Aynı tasarım, yedi kapasite.</h1>
+  </section>
+  <section style="margin-top:40px;padding:0 14px">
+    <div style="animation:gk-float 7s ease-in-out infinite"><img data-rv="" src="assets/urun2/msz-ap.webp" alt="Enviro ME MSZ-AP iç ünite, beyaz" style="display:block;width:100%;height:auto;opacity:0;transform:translateX(24px);transition:opacity 1s ease .2s,transform 1.3s cubic-bezier(.2,.7,.2,1) .2s"></div>
+    <span style="display:block;margin:6px auto 0;width:70%;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(23,22,26,.16),rgba(23,22,26,0))"></span>
+  </section>
+  <section style="padding:36px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">KAPASİTE SEÇİN</p>
+    <div style="margin-top:14px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px">
+      <sc-for list="{{ apCaps }}" as="c" hint-placeholder-count="7">
+        <button onClick="{{ c.pick }}" aria-pressed="{{ c.pressed }}" style="all:unset;cursor:pointer;box-sizing:border-box;min-height:64px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:{{ c.bg }};color:{{ c.ink }};transition:background .25s,color .25s">
+          <span style="width:70%;height:12px;border-radius:3px;border:1.5px solid currentColor;box-sizing:border-box"></span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600">{{ c.v }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <p style="margin:16px 0 0;font-size:17px;line-height:1.5"><strong style="font-weight:800">{{ apCapLabel }}</strong> <span style="color:var(--muted)">· tüm kapasitelerde aynı kompakt tasarım</span></p>
+    <p style="margin:24px 0 0;font-size:18px;line-height:1.55;color:var(--muted);text-wrap:pretty">Yüksek enerji verimliliği, çevre dostu özelliği ve farklı kapasite seçenekleriyle her türlü ortama uyum sağlayan kompakt ve şık tasarım.</p>
+    <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+      <span style="height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em">2017 GOOD DESIGN</span>
+      <span style="height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em">2018 RED DOT</span>
+    </div>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isHR }}" hint-placeholder-val="{{ false }}">
+  <section style="padding:40px 24px 0">
+    <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--muted)">HARE ME · MSZ-HR</p>
+    <h1 data-rv="" style="margin:18px 0 0;font-size:clamp(36px,11.5cqi,48px);line-height:1;font-weight:800;letter-spacing:-.035em;text-wrap:balance;opacity:0;transform:translateY(16px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)">Kullanıcı dostu, sade tasarım.</h1>
+    <p style="margin:18px 0 0;font-size:18px;line-height:1.55;color:var(--muted);text-wrap:pretty">Sade tasarımı ve kullanıcı dostu özellikleriyle hayatınızı kolaylaştırmaya hazır.</p>
+  </section>
+  <section style="margin-top:36px;padding:28px 24px 24px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px">
+    <div style="position:relative;padding:0 40px 46px 0">
+      <img data-rv="" src="assets/urun2/msz-hr.webp" alt="Hare ME MSZ-HR iç ünite, beyaz" style="display:block;width:100%;height:auto;opacity:0;transition:opacity 1s ease">
+      <span data-rv="" style="position:absolute;right:14px;top:4px;bottom:50px;width:1px;background:var(--ink);transform:scaleY(0);transform-origin:top;transition:transform 1s cubic-bezier(.6,0,.2,1) .5s"></span>
+      <span style="position:absolute;right:9px;top:4px;width:11px;height:1px;background:var(--ink)"></span>
+      <span style="position:absolute;right:9px;bottom:50px;width:11px;height:1px;background:var(--ink)"></span>
+      <span style="position:absolute;right:-12px;top:42%;transform:rotate(90deg);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;white-space:nowrap">280 mm</span>
+      <span data-rv="" style="position:absolute;left:0;right:40px;bottom:22px;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(.6,0,.2,1) .2s"></span>
+      <span style="position:absolute;left:0;bottom:17px;width:1px;height:11px;background:var(--ink)"></span>
+      <span style="position:absolute;right:40px;bottom:17px;width:1px;height:11px;background:var(--ink)"></span>
+      <span style="position:absolute;left:0;right:40px;bottom:0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600">838 mm</span>
+    </div>
+    <p style="margin:6px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--muted)">DERİNLİK 228 mm · MSZ-HR25/35/42/50</p>
+  </section>
+  <section style="padding:28px 24px 0">
+    <p style="margin:0;font-size:18px;line-height:1.55;text-wrap:pretty">Kavisli ön yüzü ile kullanıcı dostu ve sade bir tasarıma sahiptir. İç ünitenin genişliği, küçük ve dar alanlarda da kurulumu mümkün kılar.</p>
+  </section>
+</sc-if>
+
+<sc-if value="{{ isLN }}" hint-placeholder-val="{{ false }}">
+<section style="padding:40px 0 0">
+  <div style="padding:0 24px"><p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">ÇİFT KATMANLI KAPLAMA</p><h2 style="margin:14px 0 0;font-size:clamp(26px,8cqi,32px);line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance">Toz, kir, yağ ve duman tutunmaz.</h2></div>
+  <div data-rv="" role="img" aria-label="İç ünite kaplamasının üzerinden toz, kir, yağ ve sigara dumanı uzaklaşıyor" style="position:relative;margin-top:22px;aspect-ratio:1240/710;background:#000;overflow:hidden;opacity:0;transition:opacity 1.2s ease">
+    <img src="assets/detay/ln-kaplama.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 100%;animation:gk-drift 9s ease-in-out infinite alternate">
+    <span style="position:absolute;left:8%;right:4%;bottom:6%;height:12%;overflow:hidden;border-radius:4px;pointer-events:none"><span style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,0) 30%,rgba(160,200,255,.45) 50%,rgba(255,255,255,0) 70%);animation:gk-shield 4s ease-in-out 1s infinite"></span></span>
+  </div>
+  <p style="margin:16px 24px 0;font-size:17px;line-height:1.55;color:var(--muted);text-wrap:pretty">Mitsubishi Electric'in tescilli çift katmanlı kaplaması; toz, kir, sigara dumanı ve yağ birikimini önler.</p>
+</section>
+</sc-if>
+<section style="padding:36px 0 0">
+  <div class="gk-ns" style="display:flex;overflow-x:auto;padding:0 18px;scrollbar-width:none">
+    <sc-for list="{{ strip }}" as="s" hint-placeholder-count="4">
+      <div style="flex:0 0 100px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:4px 6px;border-left:{{ s.bl }}">
+        <sc-if value="{{ s.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ s.src }}" alt="" style="width:44px;height:44px;object-fit:contain;filter:{{ s.f }}"></sc-if>
+        <sc-if value="{{ s.isGlyph }}" hint-placeholder-val="{{ false }}"><span style="width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);box-sizing:border-box;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600">{{ s.glyph }}</span></sc-if>
+        <span style="font-size:14px;line-height:1.25;font-weight:600">{{ s.t }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+<section style="padding:36px 24px 0">
+  <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">ÖZELLİKLER</p>
+  <div style="margin-top:14px">
+    <sc-for list="{{ feats }}" as="f" hint-placeholder-count="4">
+      <div style="display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:20px 0;border-top:1px solid var(--line)">
+        <span style="padding-top:2px"><sc-if value="{{ f.hasIcon }}" hint-placeholder-val="{{ false }}"><img src="{{ f.src }}" alt="" style="display:block;width:32px;height:32px;object-fit:contain;filter:{{ f.f }}"></sc-if><sc-if value="{{ f.noIcon }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--muted)">{{ f.i }}</span></sc-if></span>
+        <div><p style="margin:0;font-size:19px;line-height:1.25;font-weight:800;letter-spacing:-.01em">{{ f.t }}</p><p style="margin:6px 0 0;font-size:16px;line-height:1.5;color:var(--muted);text-wrap:pretty">{{ f.d }}</p></div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-rv="" style="margin:36px 16px 0;padding:22px 18px 8px;border-radius:28px;background:#141215;color:#F4F2F0;box-shadow:0 30px 60px -30px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.12);opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:#ABA7AD">KIŞ KAMPANYASI KAPSAMINDA</span><span style="height:24px;padding:0 10px;border-radius:999px;background:#B1001A;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em">{{ code }}</span></div>
+  <p style="margin:12px 0 0;font-size:22px;line-height:1.05;font-weight:800;letter-spacing:-.02em">HERKESİ BİR ARAYA GETİREN KIŞ KAMPANYASI</p>
+  <div style="margin-top:18px;padding:18px 0;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center">
+    <div aria-hidden="true" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:center;padding-top:14px">
+      <img data-seg="" src="{{ img }}" alt="" style="width:100%;height:auto;transform:translateX(-14px);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s">
+      <div style="position:relative">
+        <div data-seg="" style="position:relative;transform:translateX(14px);transition:transform 1s cubic-bezier(.2,.7,.2,1) .2s">
+          <img src="{{ img }}" alt="" style="display:block;width:100%;height:auto;opacity:.22;filter:grayscale(1)">
+          <img data-half="" src="{{ img }}" alt="" style="position:absolute;left:0;top:0;width:100%;height:auto;clip-path:inset(0 0 0 0);transition:clip-path .9s cubic-bezier(.6,0,.2,1) 1s">
+        </div>
+        <span data-seg="" style="position:absolute;right:-8px;top:-22px;width:32px;height:32px;border-radius:50%;background:#B1001A;display:grid;place-items:center;font-size:10.5px;font-weight:800;box-shadow:0 0 0 2px #141215;transform:scale(0) rotate(-20deg);transition:transform .5s cubic-bezier(.3,1.55,.5,1) 1.7s">%50</span>
+      </div>
+    </div>
+    <p style="margin:0;font-size:16px;line-height:1.2;font-weight:800">SEÇİLİ ÜRÜNLERDE İKİNCİ KLİMAYA NET <span style="color:#FFFFFF;background:#B1001A;padding:0 .2em;border-radius:5px">%50</span> İNDİRİM</p>
+  </div>
+  <div style="padding:18px 0;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center">
+    <div aria-hidden="true" style="position:relative;font-size:76px;font-weight:800;line-height:.8;letter-spacing:-.07em">
+      <span style="display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.25)">10</span>
+      <span data-stripe="" style="position:absolute;inset:0;display:block;color:transparent;background:repeating-linear-gradient(180deg,#F4F2F0 0 4px,transparent 4px 6px);-webkit-background-clip:text;background-clip:text;-webkit-mask-image:linear-gradient(to top,#000 50%,transparent 50%);mask-image:linear-gradient(to top,#000 50%,transparent 50%);-webkit-mask-size:100% 200%;mask-size:100% 200%;-webkit-mask-position:0 0%;mask-position:0 0%;transition:-webkit-mask-position 1.3s steps(10,end) .4s,mask-position 1.3s steps(10,end) .4s">10</span>
+    </div>
+    <div><p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;color:#ABA7AD">21.000 TL DEĞERİNDE</p><p style="margin:6px 0 0;font-size:16px;line-height:1.2;font-weight:800">10 YIL GARANTİ <span style="color:#FFFFFF;background:#B1001A;padding:0 .25em;border-radius:5px">HEDİYE</span></p></div>
+  </div>
+  <div style="padding:18px 0 16px;border-top:1px solid rgba(255,255,255,.12);display:grid;grid-template-columns:132px minmax(0,1fr);gap:14px;align-items:center">
+    <div aria-hidden="true"><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px"><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.30s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.35s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.40s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.45s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.50s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.55s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.60s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.65s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.70s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.75s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.80s"></span><span data-seg="" style="aspect-ratio:1;border-radius:50%;background:#B1001A;transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1) 0.85s"></span></div><div style="margin-top:6px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#ABA7AD"><span>1</span><span>12 AY</span></div></div>
+    <div><p style="margin:0;font-size:16px;line-height:1.2;font-weight:800">12 AYA VARAN TAKSİT İMKANI</p><p style="margin:6px 0 0;font-size:14px;line-height:1.35;color:#ABA7AD">MAXIMUM KART'A ÖZEL AVANTAJLI 7 TAKSİT FİYATI</p></div>
+  </div>
+</section>
+
+<section style="padding:36px 24px calc(110px + var(--sab))">
+  <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--muted)">KÜNYE</p>
+  <p style="margin:12px 0 16px;font-size:28px;font-weight:800;letter-spacing:-.025em">{{ name }}<sup style="font-size:.45em;margin-left:2px">{{ sup }}</sup> <span style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--muted)">{{ code }}</span></p>
+  <div style="border-top:1.5px solid var(--ink)">
+    <sc-for list="{{ kunye }}" as="r" hint-placeholder-count="3">
+      <div style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line)">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--muted)">{{ r.label }}</span>
+        <span style="font-size:16px;line-height:1.4;font-weight:600">{{ r.value }}</span>
+      </div>
+    </sc-for>
+    <div style="display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)"><span style="width:7px;height:7px;background:#B1001A;border-radius:2px"></span><span style="font-size:16px;font-weight:600">10 yıl garanti fırsatı</span></div>
+  </div>
+</section>
+</div>
+
+<div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:var(--sat);background:var(--strip);z-index:6"></div>
+<div style="position:absolute;left:0;right:0;top:var(--sat);height:56px;z-index:5;display:flex;align-items:center;gap:8px;padding:0 12px;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)">
+  <button onClick="{{ back }}" aria-label="Geri dön" style="all:unset;cursor:pointer;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--glass);color:var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,5 8,12 15,19"></polyline></svg></button>
+  <span style="font-size:17px;font-weight:800;letter-spacing:-.01em">{{ name }}<sup style="font-size:.55em">{{ sup }}</sup></span>
+  <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);padding-right:6px">{{ code }}</span>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:5;padding:10px 16px calc(10px + var(--sab));display:flex;gap:10px;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)">
+  <button onClick="{{ ask }}" style="all:unset;cursor:pointer;flex:1;height:56px;border-radius:999px;background:#B1001A;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700">Sizi arayalım</button>
+  <a href="tel:+902324617425" onClick="{{ call }}" aria-label="Hemen arayın" style="flex:none;width:56px;height:56px;border-radius:50%;border:1px solid var(--line2);box-sizing:border-box;display:grid;place-items:center;color:var(--ink)"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:393,&quot;height&quot;:852},&quot;seri&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;LN&quot;,&quot;EF&quot;,&quot;AY&quot;,&quot;AP&quot;,&quot;HR&quot;],&quot;default&quot;:&quot;LN&quot;,&quot;tsType&quot;:&quot;'LN'|'EF'|'AY'|'AP'|'HR'&quot;},&quot;safeTop&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:59,&quot;tsType&quot;:&quot;number&quot;},&quot;safeBottom&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:34,&quot;tsType&quot;:&quot;number&quot;},&quot;strip&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#121113&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;open&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;onBack&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;},&quot;onAsk&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(seri: string) =&gt; void&quot;},&quot;onCall&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;}}">
+const DARKV=(bg,ink,muted,line,panel)=>({'--bg':bg,'--ink':ink,'--muted':muted,'--line':line,'--line2':'rgba(255,255,255,.28)','--panel':panel,'--label':muted,'--glass':'rgba(255,255,255,.1)','--bar':bg+'EB'});
+const LIGHTV=(bg,muted,line,panel)=>({'--bg':bg,'--ink':'#17161A','--muted':muted,'--line':line,'--line2':'#CFC9C2','--panel':panel,'--label':'#B1001A','--glass':'rgba(23,22,26,.06)','--bar':bg+'EB'});
+const IC={'yapay-zeka':'Yapay Zeka','3d-isee':'3D i-See Sensör','surdurulebilir':'Sürdürülebilir Performans','hava-dagilimi':'İnovatif Hava Dağılımı','plasma':'Plasma Quad Plus','melcloud':'Uzaktan erişim','enerji':'Yüksek Enerji Verimliliği','vblocking':'V Blocking Filtre','temizleme':'Kendi Kendini Temizleme','cift-katman':'Çift Katmanlı Kaplama'};
+const S={
+ LN:{name:'Legendera',sup:'',code:'MSZ-LN',v:DARKV('#0B0A0C','#F4F2F0','#ABA7AD','rgba(255,255,255,.12)','#161418'),
+  strip:['yapay-zeka','3d-isee','surdurulebilir','hava-dagilimi','plasma','melcloud'],
+  kunye:[{label:'KAPASİTE',value:'25 · 35 · 50 · 60'},{label:'RENK',value:'Yakut Kırmızısı, Kuzguni Siyah, İnci Beyazı'},{label:'ÖDÜL',value:'2016 Good Design'}],
+  feats:[{ic:'hava-dagilimi',t:'Çift Kanat',d:'Birbirinden bağımsız çalışabilen çift kanat, odadaki kişilerin konforuna göre ayarlanabilen bağımsız hava akışı sağlar.'},{ic:'plasma',t:'Plasma Quad Plus',d:'Gelişmiş aşamalı filtreleme teknolojisi, ortamdaki en ufak partikülleri bile filtreleme gücüne sahiptir.'},{ic:'cift-katman',t:'Çift Katmanlı Kaplama',d:'Tescilli çift katmanlı kaplama; toz, kir, sigara dumanı ve yağ birikimini önler.'},{ic:'melcloud',t:'MELCloud uzaktan erişim',d:'Klimanıza bilgisayar, tablet ya da akıllı telefonunuzla internet üzerinden ulaşabilirsiniz.'},{ic:'surdurulebilir',t:'Soğuk günlerde güçlü ısıtma',d:'Kışın karlı ve çok soğuk günlerde bile güçlü ısıtma sağlayacak şekilde tasarlanmıştır.'}]},
+ EF:{name:'Kirigamine Zen',sup:'',code:'MSZ-EF',v:LIGHTV('#F2EFE9','#5C5852','#DCD6CC','#E9E4DA'),
+  strip:['enerji',{ic:'melcloud',t:'Uzaktan erişim (opsiyonel)'},{g:'R32',t:'R32 Soğutucu Akışkan'}],
+  kunye:[{label:'KAPASİTE',value:'25 · 35 · 42 · 50'},{label:'RENK',value:'Siyah, Gümüş, Beyaz'},{label:'ÖDÜL',value:'2014 Good Design, 2015 Red Dot'}],
+  feats:[{ic:'enerji',t:'Yüksek enerji verimliliği',d:'Yeni Kirigamine Zen, yaygın cihazlara göre %50\'ye yaklaşan verim artışı sağlar. (MSZ-EF25VG\'nin sıradan A++ sınıfı cihaza göre farkı baz alınmıştır.)'},{g:'R32',t:'R32 soğutucu akışkan',d:'R410A\'ya göre üçte bir oranında daha düşük küresel ısınma potansiyeline sahip R32, daha az miktarda kullanılır.'},{t:'Sessiz ve verimli',d:'Üstün performans ile sessizliği birleştirir, tüm kapasitelerde enerji maliyetlerini azaltmaya yardımcı olur.'},{t:'Bütünlük içinde',d:'Siyah modelde kumanda da siyahtır; dekorunuzun modern ve asil yapısına uyum sağlar.'}]},
+ AY:{name:'Noviro',sup:'ME',code:'MSZ-AY',v:DARKV('#1A1714','#F4EFE8','#BAB1A6','rgba(255,240,220,.14)','#24201C'),
+  strip:['enerji',{ic:'melcloud',t:'Uzaktan erişim (modele göre)'},'plasma','vblocking','temizleme','cift-katman'],
+  kunye:[{label:'KAPASİTE',value:'25 · 35 · 42 · 50'},{label:'SINIF',value:'Soğutmada A+++, ısıtmada A++ seçenekler'}],
+  feats:[{ic:'cift-katman',t:'Çift Katmanlı Kaplama',d:'Klimanızın uzun yıllar yüksek performansını korumasına yardımcı olur.'},{ic:'temizleme',t:'Kendi Kendini Temizleme Modu',d:'İç ünitede soğutma sonrası oluşan nemin temizlenmesine yardımcı olur, belirli aralıklarla yapılan temizliği kolaylaştırır.'},{ic:'vblocking',t:'V Blocking Filtre',d:'Hijyen beklentileri için geliştirilmiş filtreleme teknolojisi.'},{ic:'plasma',t:'Plasma Quad Plus',d:'Gelişmiş aşamalı filtreleme ile ortamdaki partikülleri filtreler.'},{ic:'melcloud',t:'MELCloud Home',d:'Bulut tabanlı kontrol ile klimanızı uzaktan yönetebilirsiniz. VG serisinde opsiyonel, VGKP serisinde standart.'}]},
+ AP:{name:'Enviro',sup:'ME',code:'MSZ-AP',v:LIGHTV('#FFFFFF','#5F5B60','#E5E2E0','#F5F3F1'),
+  strip:['enerji',{ic:'melcloud',t:'Uzaktan erişim (modele göre)'},{g:'INV',t:'Inverter Teknolojisi'},{g:'PAM',t:'PAM Kontrol'}],
+  kunye:[{label:'KAPASİTE',value:'20 · 25 · 35 · 42 · 50 · 60 · 71'},{label:'ÖDÜL',value:'2017 Good Design, 2018 Red Dot'}],
+  feats:[{ic:'enerji',t:'Enerji verimliliği',d:'Sezonsal soğutmada A+++, sezonsal ısıtmada A++ enerji sınıfında yer alır.'},{g:'INV',t:'Inverter teknolojisi',d:'Kompresör devri ihtiyaca göre ayarlanır; klima yalnızca gerektiği kadar enerji tüketir.'},{g:'PAM',t:'PAM kontrol',d:'Güç kaynağından alınan gücün %98\'i verimli şekilde kullanılır.'},{g:'R32',t:'R32 soğutucu akışkan',d:'Yeni nesil, daha düşük küresel ısınma potansiyelli soğutucu akışkan.'}]},
+ HR:{name:'Hare',sup:'ME',code:'MSZ-HR',v:LIGHTV('#F6F7F7','#5B5F62','#DFE2E3','#ECEFF0'),
+  strip:['enerji',{ic:'melcloud',t:'Uzaktan erişim (opsiyonel)'},{g:'R32',t:'R32 Soğutucu Akışkan'}],
+  kunye:[{label:'KAPASİTE',value:'25 · 35 · 42 · 50 · 60 · 71'},{label:'ÖLÇÜ',value:'838 × 280 × 228 mm (HR25–50)'}],
+  feats:[{ic:'enerji',t:'R32\'li A++ klima',d:'Yeni nesil soğutucu akışkan ve yüksek sezonsal verim değerleri.'},{t:'Kolay kurulum',d:'Kompakt iç ünitesi küçük ve dar alanlara da kolayca monte edilir.'},{ic:'melcloud',t:'Uzaktan erişim (opsiyonel)',d:'Wi-Fi arayüzü ile MELCloud üzerinden klimanızı kontrol edebilirsiniz.'}]}
+};
+const LNC=[{n:'Yakut Kırmızısı',c:'#8E0F22',img:'assets/oda/ln-kirmizi.webp'},{n:'Kuzguni Siyah',c:'#141315',img:'assets/oda/ln-siyah.webp'},{n:'İnci Beyazı',c:'#E4E1DC',img:'assets/oda/oda-beyaz.webp'}];
+const AYW=['YÜKSEK ENERJİ VERİMLİLİĞİ','ÇİFT KATMANLI KAPLAMA','KENDİ KENDİNİ TEMİZLEME MODU'];
+const WP=[{x:92,y:236,place:'Salon · koltuk'},{x:150,y:150,place:'Salon · orta alan'},{x:250,y:150,place:'Pencere önü'},{x:66,y:104,place:'Çalışma masası'},{x:232,y:234,place:'Okuma koltuğu'}];
+const APC=['20','25','35','42','50','60','71'];
+const mask=k=>'url(assets/ikon/'+k+'.png) center/contain no-repeat';
+function stripItem(x,i,fl){const o=typeof x==='string'?{ic:x}:x;return {f:fl,src:o.ic?'assets/ikon/'+o.ic+'.png':'',hasImg:!!o.ic,isGlyph:!o.ic,mask:o.ic?mask(o.ic):'none',glyph:o.g||'',t:o.t||IC[o.ic]||'',bl:i===0?'none':'1px solid var(--line)'};}
+const saCss=(v,side)=>(v==null||v==='')?'env(safe-area-inset-'+side+', 0px)':(/^[\d.]+(px)?$/.test(String(v))?parseFloat(v)+'px':String(v));
+class Component extends DCLogic {
+  state={lnC:0,apCap:2,ayW:0,wp:0,airTo:false};
+  scroller=React.createRef();
+  componentDidMount(){this.setup();this.tm2=setInterval(()=>{if(this.props.seri==='LN'&&this.props.open!==false)this.setState(s=>({wp:(s.wp+1)%WP.length}));},3600);this.tm=setInterval(()=>{if(this.props.seri==='AY')this.setState(s=>({ayW:(s.ayW+1)%3}));},2800);}
+  componentWillUnmount(){clearInterval(this.tm);clearInterval(this.tm2);this.io&&this.io.disconnect();}
+  componentDidUpdate(p){if(p.seri!==this.props.seri||(this.props.open&&!p.open)){const sc=this.scroller.current;if(sc)sc.scrollTop=0;setTimeout(()=>this.setup(),40);}}
+  setup(){const sc=this.scroller.current;if(!sc)return;this.io&&this.io.disconnect();
+    const els=[...sc.querySelectorAll('[data-rv]')].filter(e=>!e.dataset.done);
+    const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce||!('IntersectionObserver' in window)){els.forEach(e=>this.reveal(e,true));return;}
+    this.io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){this.reveal(x.target);this.io.unobserve(x.target);}}),{root:sc,threshold:.1});
+    els.forEach(e=>this.io.observe(e));}
+  reveal(el,instant){el.dataset.done='1';const segs=[...el.querySelectorAll('[data-seg]')];
+    if(instant){el.style.transition='none';segs.forEach(s=>s.style.transition='none');}
+    el.style.opacity='1';el.style.transform='none';el.style.filter='none';if(el.hasAttribute('data-clip'))el.style.clipPath='inset(0 0 0 0)';el.querySelectorAll('[data-half]').forEach(t=>t.style.clipPath='inset(0 50% 0 0)');el.querySelectorAll('[data-stripe]').forEach(t=>{t.style.webkitMaskPosition='0 100%';t.style.maskPosition='0 100%';});segs.forEach(s=>s.style.transform='none');}
+  renderVals(){
+    const k=S[this.props.seri]?this.props.seri:'LN',d=S[k],s=this.state,fl=(k==='LN'||k==='AY')?'none':'brightness(0)';
+    const sat=saCss(this.props.safeTop,'top'),sab=saCss(this.props.safeBottom,'bottom');
+    return {
+      vars:Object.assign({},d.v,{'--sat':sat,'--sab':sab,'--strip':this.props.strip||d.v['--bg']}),
+      scroller:this.scroller,img:'assets/urun2/msz-'+k.toLowerCase()+'.png',name:d.name,sup:d.sup,code:d.code,
+      isLN:k==='LN',isEF:k==='EF',isAY:k==='AY',isAP:k==='AP',isHR:k==='HR',
+      strip:d.strip.map((x,i)=>stripItem(x,i,fl)),
+      feats:d.feats.map((f,i)=>({t:f.t,d:f.d,i:f.g||('0'+(i+1)),hasIcon:!!f.ic,noIcon:!f.ic,f:fl,src:f.ic?'assets/ikon/'+f.ic+'.png':'',mask:f.ic?mask(f.ic):'none'})),kunye:d.kunye,
+      lnImgs:[0,1,2].map(i=>{const on=s.lnC===i;return {src:LNC[i].img,alt:'Legendera '+LNC[i].n+' renkli klimanın bulunduğu oda',o:on?1:0,t:on?'scale(1)':'scale(1.06)'};}),
+      lnSw:LNC.map((c,i)=>({n:c.n,c:c.c,pressed:String(s.lnC===i),bd:s.lnC===i?'#F4F2F0':'rgba(255,255,255,.16)',pick:()=>this.setState({lnC:i})})),
+      ayWords:AYW.map((v,i)=>{const st=i===s.ayW?0:(i===(s.ayW+2)%3?-1:1);return {v,o:st===0?1:0,t:st===0?'translateY(0)':(st<0?'translateY(-.4em)':'translateY(.4em)')};}),
+      apCaps:APC.map((v,i)=>({v,pressed:String(s.apCap===i),bg:s.apCap===i?'#17161A':'#F5F3F1',ink:s.apCap===i?'#FFFFFF':'#17161A',pick:()=>this.setState({apCap:i})})),
+      apCapLabel:'MSZ-AP'+APC[s.apCap],...(()=>{const p=WP[s.wp],to=s.airTo;const tx=to?p.x:(p.x<150?Math.min(270,p.x+130):Math.max(30,p.x-130)),ty=to?p.y:Math.max(70,p.y-110);const mk=o=>'M'+(150+o)+' 26 C'+(150+o*1.6)+' 90 '+(tx+o*1.4)+' '+(ty-70)+' '+(tx+o*1.4)+' '+ty;const cone=-Math.atan2(p.x-150,p.y-24)*180/Math.PI;const cells=[];for(let r=0;r<10;r++)for(let c=0;c<10;c++){const cx=10+c*28+14,cy=10+r*28+14,d=Math.hypot(cx-p.x,cy-p.y);cells.push({o:Math.max(0,.2-d/320).toFixed(3)});}return {ps:{x:p.x,y:p.y,place:p.place},cone:cone.toFixed(1),heat:cells,air:{p1:mk(-14),p2:mk(0),p3:mk(14),lbl:to?'Size doğru':'Sizden uzağa',thumb:to?'translateX(100%)':'translateX(0)',awayStr:String(!to),toStr:String(to),c1:to?'#F4F2F0':'#17161A',c2:to?'#17161A':'#F4F2F0'},setAway:()=>this.setState({airTo:false}),setTo:()=>this.setState({airTo:true})};})(),
+      back:()=>this.props.onBack&&this.props.onBack(),
+      ask:()=>this.props.onAsk&&this.props.onAsk(d.code),
+      call:e=>{if(this.props.onCall){e&&e.preventDefault&&e.preventDefault();this.props.onCall();}}
+    };
+  }
+}
+</script>
+</body>
+</html>
