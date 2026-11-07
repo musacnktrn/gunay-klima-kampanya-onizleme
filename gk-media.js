@@ -3,7 +3,7 @@
   'use strict';
   var video = null, bagli = false, bekliyor = false, oynuyor = false;
   var istek = false, formAcik = false, aktifPlay = false, hata = '', sira = 0;
-  var mini = null, baslatildi = false, detayAcik = false;
+  var baslatildi = false;
   var autoTimer = 0, autoKuruldu = false, autoBekliyor = false;
   var olaylar = ['playing', 'pause', 'ended', 'volumechange', 'waiting', 'error'];
 
@@ -27,7 +27,7 @@
     var sesli = !video.paused && sesAcik && !video.ended;
     var durum = hata ? 'error' : (bekliyor || (!video.paused && !oynuyor)) ? 'loading' : sesli ? 'audible' : !video.paused ? 'muted' : 'idle';
     var etiket = (sesAcik && (bekliyor || sesli)) ? 'Sesi kapat' : 'Sesi aç';
-    [dugme, mini].forEach(function (b) {
+    [dugme].forEach(function (b) {
       if (!b) return;
       b.disabled = formAcik;
       b.setAttribute('data-media-state', durum);
@@ -36,11 +36,6 @@
       var ad = b.querySelector('[data-ses-etiket]');
       if (ad) ad.textContent = etiket;
     });
-    if (mini) {
-      var r = video.getBoundingClientRect ? video.getBoundingClientRect() : { top: 0, bottom: 100 };
-      var gorunur = r.bottom > 70 && r.top < (window.innerHeight || 800) - 100;
-      mini.hidden = !baslatildi || formAcik || video.ended || (!detayAcik && gorunur);
-    }
     if (yazi) yazi.textContent = hata || (durum === 'loading' ? 'Video yükleniyor…' : '');
   }
 
@@ -66,8 +61,6 @@
     var a = e.target && e.target.closest && e.target.closest('a[href^="tel:"],a[href^="https://wa.me/"],a[href^="https://api.whatsapp.com/"]');
     if (a) durdur();
   }
-
-  function konumGuncelle() { goster(); }
 
   function autoIptal() {
     if (autoTimer) clearTimeout(autoTimer);
@@ -112,16 +105,8 @@
     if (!bagli) {
       document.addEventListener('play', oynatma, true);
       document.addEventListener('click', iletisim, true);
-      document.addEventListener('scroll', konumGuncelle, true);
       document.addEventListener('visibilitychange', gorunurluk);
       window.addEventListener('pagehide', durdur);
-      window.addEventListener('resize', konumGuncelle);
-      mini = document.createElement('button');
-      mini.type = 'button'; mini.id = 'gk-ses-mini'; mini.hidden = true;
-      mini.className = 'gk-ses-kontrol gk-ses-mini';
-      mini.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"></path><path class="gk-ses-kapali" d="m16 9 6 6m0-6-6 6"></path><path class="gk-ses-acik" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"></path></svg><span data-ses-etiket="">Sesi aç</span>';
-      mini.addEventListener('click', degistir);
-      document.body.appendChild(mini);
       bagli = true;
     }
     v = v || document.getElementById('gk-tanitim');
@@ -217,14 +202,12 @@
     if (bagli) {
       document.removeEventListener('play', oynatma, true);
       document.removeEventListener('click', iletisim, true);
-      document.removeEventListener('scroll', konumGuncelle, true);
       document.removeEventListener('visibilitychange', gorunurluk);
       window.removeEventListener('pagehide', durdur);
-      window.removeEventListener('resize', konumGuncelle);
     }
-    if (mini) { mini.removeEventListener('click', degistir); mini.remove(); mini = null; }
-    video = null; bagli = false; detayAcik = false; formAcik = false; autoKuruldu = false;
+    video = null; bagli = false; formAcik = false; autoKuruldu = false;
   }
 
-  window.gkMedia = { bagla: bagla, degistir: degistir, form: form, durdur: durdur, ayir: ayir, yenile: function (acik) { detayAcik = !!acik; goster(); } };
+  // [codex] Eski Component hooku API uyumluluğu için kalır; gezinen kontrol oluşturulmaz.
+  window.gkMedia = { bagla: bagla, degistir: degistir, form: form, durdur: durdur, ayir: ayir, yenile: function () {} };
 })();
