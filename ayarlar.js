@@ -1,5 +1,7 @@
 // Günay Klima kampanya sitesi ayarları. Sitede değişecek bilgiler yalnız bu dosyadan düzenlenir.
 window.GK_AYAR = {
+  // [codex] Kanonik ayar gerçek moddur. Yalnız --profil demo çıktısında true türetilir.
+  ONIZLEME_DEMO: true,
   // Supabase: Project Settings > API ekranındaki adres ve herkese açık (anon/publishable) anahtar.
   SUPABASE_URL: '',
   SUPABASE_ANON_KEY: '',
@@ -15,7 +17,8 @@ window.GK_AYAR = {
 
   // Videolar. Dosya adresi yazılınca oynatıcı kendiliğinden açılır.
   // Müşteri videosu örneği: { src: 'videolar/ayse.mp4', poster: 'videolar/ayse.jpg', ad: 'Müşteri videosu 1' }
-  TANITIM_VIDEO: '',
+  TANITIM_VIDEO: 'videolar/gunay-klima-tanitim.mp4',
+  TANITIM_POSTER: 'videolar/gunay-klima-tanitim-poster.jpg?v=ee7edf2c21',
   MUSTERI_VIDEOLARI: [],
 
   // KVKK metinlerinde görünecek şirket bilgisi.

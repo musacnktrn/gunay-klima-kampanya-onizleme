@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "ureten": "codex",
+  "profil": "demo",
+  "gercek_basvuru": false,
+  "konum": "cihazda-yerel",
+  "analytics": false,
+  "ayarlar_sha256": "8fd3e93eafc0b68ec7ef597f09d8ccde60cf1aa3bc975740588fc368c40ee22a"
+}
