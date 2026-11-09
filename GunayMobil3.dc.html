@@ -63,7 +63,7 @@
     <p style="margin:22px 0 10px;font-size:17px;font-weight:600;color:var(--camp-muted)">Mitsubishi Electric Klima'dan</p>
     <h2 style="margin:0;font-size:clamp(28px,9cqi,40px);line-height:1.02;font-weight:800;letter-spacing:-0.03em"><span style="display:block">HERKESİ BİR</span><span style="display:block">ARAYA GETİREN</span><span style="display:block;color:var(--camp-title-accent)">KIŞ KAMPANYASI</span></h2>
   </div>
-  <div data-rv="" style="margin-top:28px;opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)">
+  <div data-rv="" data-rv-once="" style="margin-top:28px;opacity:0;transform:translateY(18px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)">
     <div aria-label="Herkesi bir araya getiren kış kampanyası, Günay Klima" role="img" style="position:relative;border-radius:26px;overflow:hidden;background:var(--exp-bg);box-shadow:0 30px 60px -34px rgba(23,22,26,.55),inset 0 0 0 1px var(--camp-line)">
       <div style="position:relative;aspect-ratio:5/4;overflow:hidden;background:#0E0D0F">
         <div data-seg="" style="position:absolute;inset:0;clip-path:polygon(0 0,62% 0,38% 100%,0 100%);transform:translateX(-7%);transition:transform 1.3s cubic-bezier(.2,.7,.2,1) .1s">
@@ -937,7 +937,7 @@ class Component extends DCLogic {
     
     if(reduce||!('IntersectionObserver' in window)){els.forEach(e=>this.reveal(e,true));return;}
     sc.querySelectorAll('[data-count]').forEach(e=>{e.textContent='0';});
-    this.io=new IntersectionObserver(ents=>ents.forEach(en=>{const t=en.target;if(en.isIntersecting){if(!t._shown){t._shown=1;this.reveal(t);}}else if(t._shown){t._shown=0;this.unreveal(t);}}),{root:sc,threshold:.12});
+    this.io=new IntersectionObserver(ents=>ents.forEach(en=>{const t=en.target,once=t.hasAttribute('data-rv-once');if(once&&t._shown)return;if(en.isIntersecting){if(!t._shown){t._shown=1;this.reveal(t);if(once)this.io.unobserve(t);}}else if(t._shown){t._shown=0;this.unreveal(t);}}),{root:sc,threshold:.12});
     els.forEach(e=>{this.snap(e);this.io.observe(e);});this.onScroll();
   }
   payTick(){const s=this.state;if(!s.billsIn||this.reduce||performance.now()-(this.billsAt||0)<2300)return;const el=this.billsRef.current,sc=this.scroller.current;if(!el||!sc)return;const a=el.getBoundingClientRect(),b=sc.getBoundingClientRect();if(a.bottom<b.top||a.top>b.bottom)return;let p=(s.payIdx||0)+1;if(p>s.taksit+3)p=0;this.setState({payIdx:p,lap:p===0?(s.lap||0)+1:(s.lap||0)});}
